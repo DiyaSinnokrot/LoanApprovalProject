@@ -1,0 +1,11 @@
+\section{Related Work}
+
+Loan approval prediction has long been a core task in financial risk assessment. Traditional methods relied on statistical models such as logistic regression or decision trees to predict outcomes based on structured data. In recent years, machine learning approaches, particularly deep learning, have been applied to improve predictive accuracy and capture nonlinear patterns in financial features.
+
+DNNs have proven effective in modeling complex interactions in tabular datasets. On the other hand, CNNs are typically used in image and text domains, but recent work has explored their potential to process structured data by treating features as sequential inputs.
+
+Transformer-based models like BERT have achieved state-of-the-art results in natural language processing~\cite{devlin2018bert} and have been integrated into multi-modal pipelines to incorporate textual information into structured prediction tasks.
+
+Finally, explainability techniques such as SHAP have become essential for interpreting the behavior of black box models, especially in high-stakes domains like finance. Prior studies show SHAP’s utility in understanding both global and local predictions makes it a natural choice for our interpretability component~\cite{lundberg2017unified}.
+
+Our work combines these directions by building two multi-modal deep learning models (DNN and CNN) that fuse tabular and text inputs, and applies SHAP to analyze and compare their decision-making processes.

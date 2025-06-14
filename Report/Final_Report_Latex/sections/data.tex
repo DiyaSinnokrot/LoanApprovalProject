@@ -1,0 +1,41 @@
+\section{Data Description}
+
+\subsection{Dataset Source and Scope}
+
+We use the publicly available Lending Club dataset~\cite{lendingclub}, which contains detailed information about peer-to-peer loan applications. The full dataset spans loans issued between 2007 and 2018. For this project, we filtered and selected loans issued in the years 2015 and 2016 to maintain temporal consistency and ensure high data quality.
+
+\subsection{Initial Dataset Overview}
+
+The raw dataset contains over 2.2 million rows and 151 columns. These include borrower details, loan amounts, interest rates, employment information, verification status, textual descriptions, and loan status (e.g., Fully Paid, Charged Off).
+
+\subsection{Filtering and Feature Selection}
+
+We reduced the dataset to the most relevant columns based on domain knowledge and modeling needs. The selected columns include:
+
+\begin{itemize}
+    \item \textbf{Numerical:} \texttt{loan\_amnt}, \texttt{int\_rate}, \texttt{annual\_inc}, \texttt{dti}, \texttt{open\_acc}, \texttt{revol\_util}, \texttt{fico\_range\_high}
+    \item \textbf{Categorical:} \texttt{term}, \texttt{grade}, \texttt{emp\_title}, \texttt{home\_ownership}, \texttt{verification\_status}
+    \item \textbf{Text:} \texttt{purpose}, \texttt{title} (later combined into a unified \texttt{text} field)
+    \item \textbf{Target:} \texttt{loan\_status} — converted to binary: Fully Paid = 1, Charged Off = 0
+\end{itemize}
+
+After filtering out missing rows in key columns and restricting to 2015–2016 loans, we obtained a clean dataset with 668,640 rows and 15 columns.
+
+\subsection{Text Feature Construction}
+
+To create a meaningful input for BERT, we combined the \texttt{purpose} and \texttt{title} columns into a single \texttt{text} column. Missing titles were filled with “Unknown” to avoid tokenization issues.
+
+\subsection{Balanced Sampling for Training}
+
+For model training, we created a balanced dataset of 20,000 samples—10,000 positive (fully paid) and 10,000 negative (charged off) loans—ensuring equal class representation to avoid bias. This sampled dataset was saved as \texttt{loan\_data\_sampled.csv} and used for all downstream modeling.
+
+\subsection{Final Dataset Summary}
+
+\begin{itemize}
+    \item \textbf{Pre-cleaning shape:} 2,260,701 rows × 151 columns
+    \item \textbf{Post-cleaning shape:} 668,640 rows × 15 columns
+    \item \textbf{Sampled for modeling:} 20,000 rows (balanced)
+    \item \textbf{Target distribution in sampled set:} 10,000 positive / 10,000 negative
+\end{itemize}
+
+This preprocessing pipeline ensured both computational efficiency and balanced model learning.

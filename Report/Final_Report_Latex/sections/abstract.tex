@@ -1,0 +1,7 @@
+\section*{Abstract}
+
+In this project, we explore the effectiveness of two deep learning architectures Deep Neural Networks (DNN) and Convolutional Neural Networks (CNN) for loan approval prediction using multi modal data. The input combines structured financial variables and unstructured textual descriptions. We use BERT to process the text input, and integrate it with tabular features in a fused architecture.
+
+While CNNs are rarely applied to financial tabular data, we experiment with Conv1D layers to capture localized patterns. To interpret model behavior, we apply SHAP explainability techniques on both models, analyzing global feature importance and local predictions.
+
+Our results show that the DNN slightly outperforms the CNN in AUC and interpretability, while the CNN shows competitive performance and learns more concentrated feature attributions. This comparative study offers practical insights into deep learning-based decision support systems for finance.

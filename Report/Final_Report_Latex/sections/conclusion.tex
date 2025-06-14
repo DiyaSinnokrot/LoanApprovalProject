@@ -1,0 +1,12 @@
+\section{Conclusion}
+
+This project set out to explore whether a Convolutional Neural Network (CNN) could perform comparably to a Deep Neural Network (DNN) for the task of loan approval prediction — a domain typically dominated by dense architectures. By designing both models as multi-modal systems that combine structured financial features with unstructured loan descriptions via BERT, we ensured a fair and insightful comparison.
+
+Our results show that the CNN model, despite having over eight times fewer parameters than the DNN, achieved nearly identical accuracy and ROC-AUC, and even surpassed the DNN in recall and F1-score. This suggests that CNNs, when properly adapted to tabular tasks, can be competitive — even in structured domains not traditionally associated with convolutional layers.
+
+SHAP explainability provided valuable insights into how each model made its decisions. The DNN offered broader feature attribution, while the CNN demonstrated focused reliance on a smaller set of impactful features. This trade-off between holistic reasoning and sharp local pattern detection highlights the architectural biases of each model.
+
+Ultimately, both architectures showed strengths depending on deployment priorities: the DNN remains preferable for stakeholder transparency and nuanced feature interpretation, while the CNN’s lightweight design and higher recall make it suitable for recall-critical or resource-constrained environments.
+
+\textbf{Future Work:}  
+While our models used a frozen BERT encoder for simplicity, future research could explore full fine-tuning of BERT, larger-scale datasets, or additional modalities (e.g., credit history text or document scans). Exploring hybrid fusion mechanisms or transformers for tabular data may also push the boundaries further in real-world financial applications.
